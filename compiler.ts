@@ -96,7 +96,7 @@ module HB {
             case ASTNodeType.SUBVIEW:
                 var subviewKey;
                 var loopID = context.loopStack[context.loopStack.length - 1];
-                subviewKey = '"s' + context.nextSubviewID++ + '"';
+                subviewKey = '__viewID + "s' + context.nextSubviewID++ + '"';
                 if (loopID) {
                     subviewKey += ' + __p' + loopID + ' + "_" + __i' + loopID;
                 }

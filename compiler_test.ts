@@ -35,9 +35,9 @@ var nodes: HB.ASTNode[] = [
 var result = HB.compileRenderer(nodes);
 console.log(result);
 console.log('-----------');
-var resultFunc = Function('__ctx', result);
+var resultFunc = Function('__viewID', '__ctx', result);
 var Button = (attrs) => attrs;
-console.log(resultFunc({days: 1, hours: [1, 2], Button: Button}));
-console.log(resultFunc({days: 1, hours: [1, 2, 3], Button: Button}));
-console.log(resultFunc({days: 3, Button: Button}));
-console.log(resultFunc({days: 10, Button: Button}));
+console.log(resultFunc('a', {days: 1, hours: [1, 2], Button: Button}));
+console.log(resultFunc('b', {days: 1, hours: [1, 2, 3], Button: Button}));
+console.log(resultFunc('c', {days: 3, Button: Button}));
+console.log(resultFunc('d', {days: 10, Button: Button}));
